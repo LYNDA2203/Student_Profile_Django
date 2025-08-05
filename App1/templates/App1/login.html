@@ -1,0 +1,33 @@
+{% extends 'App1/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'App1/css/login.css' %}">
+{% endblock %}
+
+{% block content %}
+<h2>Login</h2>
+
+{% if messages %}
+  <ul>
+    {% for message in messages %}
+      <li style="color:red">{{ message }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+<form method="post">
+  {% csrf_token %}
+  <label for="username">Username:</label>
+  <input type="text" name="username" id="username" required><br><br>
+
+  <label for="password">Password:</label>
+  <input type="password" name="password" id="password" required><br><br>
+
+  <button type="submit" class="btn btn-primary">Login</button>
+</form>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'App1/js/login.js' %}"></script>
+{% endblock %}

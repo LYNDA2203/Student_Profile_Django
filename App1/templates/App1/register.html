@@ -1,0 +1,22 @@
+{% extends 'App1/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'App1/css/register.css' %}">
+{% endblock %}
+
+{% block content %}
+<h2>Register</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success" id="register-btn"
+        data-courses="{{ selected_courses|join:', ' }}">
+        Register for Courses
+    </button>
+</form>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'App1/js/register.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,23 @@
+/* Logged out message */
+h2 {
+    text-align: center;
+    color: #495057;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+/* Login again link */
+a {
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    color: #0d6efd;
+    text-decoration: none;
+    margin-top: 10px;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0a58ca;
+    text-decoration: underline;
+}

@@ -1,0 +1,23 @@
+{% extends 'App1/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'App1/css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+<h2>Dashboard</h2>
+<p><strong>Enrolled Courses:</strong></p>
+<ul>
+    {% for course in student.courses.all %}
+        <li>{{ course.name }}</li>
+    {% empty %}
+        <li>No courses enrolled</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'register_courses' %}" class="btn btn-success mt-3">Register for Courses</a>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'App1/js/home.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'App1/base.html' %}
+{% block content %}
+  <h2>Register for Courses</h2>
+
+  {% if success_message %}
+    <div style="color: green; font-weight: bold;">{{ success_message }}</div>
+  {% endif %}
+
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+  </form>
+{% endblock %}

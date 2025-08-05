@@ -1,0 +1,44 @@
+/* Center the form on the page */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Style the headings */
+h2 {
+    text-align: center;
+    color: #343a40;
+    margin-bottom: 30px;
+}
+
+/* Style form fields */
+form p {
+    margin-bottom: 20px;
+}
+
+/* Label styling */
+form label {
+    font-weight: 500;
+    display: block;
+    margin-bottom: 6px;
+    color: #495057;
+}
+
+/* Input and select styling */
+form input,
+form select,
+form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid #ced4da;
+    background-color: #fff;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+}
+
+/* Submit button */
+form button {
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 16px;
+}
