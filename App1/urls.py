@@ -17,12 +17,12 @@ Including another URLconf
 from django.urls import path
 from django.contrib.auth import views as auth_views
 from . import views
-
+from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
     path('', views.home, name='home'),
     path('register/', views.register, name='register'),
     path('login/', views.user_login, name='login'),
-    path('logout/', auth_views.LogoutView.as_view(template_name='App1/logout.html'), name='logout'),
+    path('logout/', LogoutView.as_view(next_page='register'), name='logout'), 
     path('register-courses/', views.register_courses, name='register_courses'),
 ]

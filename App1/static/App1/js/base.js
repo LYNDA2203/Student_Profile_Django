@@ -7,4 +7,13 @@ document.addEventListener('DOMContentLoaded', () => {
             loginButton.disabled = true;
         });
     }
+
+
+const logoutButton = document.querySelector('#logout-btn');
+    if (logoutButton) {
+        logoutButton.addEventListener('click', () => {
+            logoutButton.innerHTML = 'Logging out...';
+            logoutButton.disabled = true;
+        });
+    }
 });

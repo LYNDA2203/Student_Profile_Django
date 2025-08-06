@@ -10,6 +10,3 @@ class Course(models.Model):
 class StudentProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     courses = models.ManyToManyField(Course, blank=True)
-
-    def __str__(self):
-        return self.user.username

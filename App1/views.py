@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate,login
+from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 from .forms import RegisterForm
 from .models import StudentProfile,Course
@@ -60,12 +60,7 @@ def register_courses(request):
     
     
     # Hardcoded list of course choices
-    COURSE_CHOICES = [
-        ('Python Full Stack', 'Python Full Stack'),
-        ('Java Full Stack', 'Java Full Stack'),
-        ('ML/AI', 'ML/AI'),
-        ('Power BI', 'Power BI')
-    ]
+    COURSE_CHOICES = [(course.name, course.name) for course in Course.objects.all()]
 
     class ManualStudentCourseForm(forms.Form):
         courses = forms.MultipleChoiceField(
@@ -87,9 +82,10 @@ def register_courses(request):
     else:
         initial_courses = student_profile.courses.values_list('name', flat=True)
         form = ManualStudentCourseForm(initial={'courses': list(initial_courses)})
-        selected_courses = student_profile.courses.all() 
+        
         
     return render(request, 'App1/course_registration.html', {
         'form': form,
-        'selected_courses': [course.name for course in selected_courses]
+        'selected_courses' : student_profile.courses.all(), 
     })
+    
